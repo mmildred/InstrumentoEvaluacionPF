@@ -6,7 +6,7 @@ UNIDAD 3: INSTRUMENTO DE EVALUACIÓN
 ## Imagen del cicuito
 ![circuit_image (1)](https://github.com/user-attachments/assets/387c865f-036d-4424-bfa2-7e359e50f133)
 
-## Flujo [JSON](node-red3json.json)
+## Flujo [JSON](https://github.com/mmildred/InstrumentoEvaluacionPF/blob/17b1a4833c3a1706d21fbda9f37997b2ecd542f2/node-red3-json.json)
 ![image](https://github.com/user-attachments/assets/4ab97f2b-2ee3-400d-874a-9cd62059870d)
 
 ## Proceso - Conexión
