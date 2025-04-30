@@ -1,0 +1,519 @@
+[
+    {
+        "id": "219a5e53e61eba79",
+        "type": "mqtt out",
+        "z": "92f2dd3086326fdf",
+        "name": "Comando Entrada",
+        "topic": "abriracceso/barra",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker",
+        "x": 610,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c0726ab8784faa63",
+        "type": "mqtt out",
+        "z": "92f2dd3086326fdf",
+        "name": "Comando Salida",
+        "topic": "abriracceso/barra",
+        "qos": "0",
+        "retain": "false",
+        "broker": "mqtt_broker",
+        "x": 610,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2b0934b82abbe5fa",
+        "type": "inject",
+        "z": "92f2dd3086326fdf",
+        "name": "Subir Barrera Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "subir_entrada",
+        "payloadType": "str",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "219a5e53e61eba79",
+                "1f9070d7c132c1d3",
+                "f1a5d2a1ecb14e1f"
+            ]
+        ]
+    },
+    {
+        "id": "1f9070d7c132c1d3",
+        "type": "debug",
+        "z": "92f2dd3086326fdf",
+        "name": "Log Comando Entrada",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "10b1a9c11465e4cb",
+        "type": "inject",
+        "z": "92f2dd3086326fdf",
+        "name": "Bajar Barrera Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "bajar_entrada",
+        "payloadType": "str",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "219a5e53e61eba79",
+                "1f9070d7c132c1d3"
+            ]
+        ]
+    },
+    {
+        "id": "cd462f7ce2157d55",
+        "type": "inject",
+        "z": "92f2dd3086326fdf",
+        "name": "Subir Barrera Salida",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "subir_salida",
+        "payloadType": "str",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "c0726ab8784faa63",
+                "1254a12ee2c20181"
+            ]
+        ]
+    },
+    {
+        "id": "1254a12ee2c20181",
+        "type": "debug",
+        "z": "92f2dd3086326fdf",
+        "name": "Log Comando Salida",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dedda713141fa227",
+        "type": "inject",
+        "z": "92f2dd3086326fdf",
+        "name": "Bajar Barrera Salida",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "bajar_salida",
+        "payloadType": "str",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "c0726ab8784faa63",
+                "1254a12ee2c20181",
+                "6e34cc7edbbcc9aa"
+            ]
+        ]
+    },
+    {
+        "id": "94482a6e0c02759a",
+        "type": "mqtt in",
+        "z": "92f2dd3086326fdf",
+        "name": "Respuestas ESP32",
+        "topic": "parking/status",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "mqtt_broker",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 560,
+        "wires": [
+            [
+                "39b86e409a832311"
+            ]
+        ]
+    },
+    {
+        "id": "39b86e409a832311",
+        "type": "debug",
+        "z": "92f2dd3086326fdf",
+        "name": "Status ESP32",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f1a5d2a1ecb14e1f",
+        "type": "ui_button",
+        "z": "92f2dd3086326fdf",
+        "name": "Subir Barrera Entrada",
+        "group": "e2d2b7aee4d57b88",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Subir Entrada",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "arrow-up",
+        "payload": "subir_entrada",
+        "payloadType": "str",
+        "topic": "",
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "1f9070d7c132c1d3",
+                "219a5e53e61eba79",
+                "c69722c98d2eba93"
+            ]
+        ]
+    },
+    {
+        "id": "b55c634978e7c749",
+        "type": "ui_button",
+        "z": "92f2dd3086326fdf",
+        "name": "Bajar Barrera Entrada",
+        "group": "e2d2b7aee4d57b88",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Bajar Entrada",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "arrow-down",
+        "payload": "bajar_entrada",
+        "payloadType": "str",
+        "topic": "",
+        "x": 900,
+        "y": 220,
+        "wires": [
+            [
+                "219a5e53e61eba79",
+                "1f9070d7c132c1d3"
+            ]
+        ]
+    },
+    {
+        "id": "6e34cc7edbbcc9aa",
+        "type": "ui_button",
+        "z": "92f2dd3086326fdf",
+        "name": "Subir Barrera Salida",
+        "group": "e2d2b7aee4d57b88",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Subir Salida",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "arrow-up",
+        "payload": "subir_salida",
+        "payloadType": "str",
+        "topic": "",
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "c0726ab8784faa63",
+                "1254a12ee2c20181",
+                "aaf27296adcdc172"
+            ]
+        ]
+    },
+    {
+        "id": "76c0f5d481fc351e",
+        "type": "ui_button",
+        "z": "92f2dd3086326fdf",
+        "name": "Bajar Barrera Salida",
+        "group": "e2d2b7aee4d57b88",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Bajar Salida",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "arrow-down",
+        "payload": "bajar_salida",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 440,
+        "wires": [
+            [
+                "1254a12ee2c20181",
+                "c0726ab8784faa63"
+            ]
+        ]
+    },
+    {
+        "id": "07c976f609b63f98",
+        "type": "ui_chart",
+        "z": "92f2dd3086326fdf",
+        "name": "Contador de Entradas",
+        "group": "ac5850a618a71f64",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Contador Entradas",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "1",
+        "ymax": "10",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#da2b2b",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 900,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c69722c98d2eba93",
+        "type": "function",
+        "z": "92f2dd3086326fdf",
+        "name": "function 1",
+        "func": "var contadorEntradas = flow.get('contadorEntradas') || 0;  // Obtiene el valor o inicializa en 0\n\ncontadorEntradas += 1;\n\nflow.set('contadorEntradas', contadorEntradas);\n\nmsg.payload = contadorEntradas;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 60,
+        "wires": [
+            [
+                "07c976f609b63f98"
+            ]
+        ]
+    },
+    {
+        "id": "aaf27296adcdc172",
+        "type": "function",
+        "z": "92f2dd3086326fdf",
+        "name": "function 3",
+        "func": "if (typeof context.get(\"salidas\") === \"undefined\") {\n    context.set(\"salidas\", 0);\n}\n\n// Incrementar el contador\nlet salidas = context.get(\"salidas\") + 1;\ncontext.set(\"salidas\", salidas);\n\nmsg.payload = salidas;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 500,
+        "wires": [
+            [
+                "0b4b65654d0dbe9e"
+            ]
+        ]
+    },
+    {
+        "id": "0b4b65654d0dbe9e",
+        "type": "ui_chart",
+        "z": "92f2dd3086326fdf",
+        "name": "Contador de Salidas",
+        "group": "ac5850a618a71f64",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Contador Salidas",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "1",
+        "ymax": "10",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#da2b2b",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 920,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "Broker",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e2d2b7aee4d57b88",
+        "type": "ui_group",
+        "name": "Control Barreras",
+        "tab": "adf44bf03c92d791",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ac5850a618a71f64",
+        "type": "ui_group",
+        "name": "Registros",
+        "tab": "adf44bf03c92d791",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false
+    },
+    {
+        "id": "adf44bf03c92d791",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
