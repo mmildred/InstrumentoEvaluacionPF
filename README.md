@@ -80,6 +80,9 @@ sensor_ir = Pin(25, Pin.IN)
 ## ▶️ Video Demostración  
 [![Video Demo](https://img.shields.io/badge/🎥-Ver_Video_Demo-red)](https://drive.google.com/file/d/1IkWIEEnOwtfyAgufyPPKngzTXMUnKYyu/view?usp=sharing)  
 
+## ▶️ Video Persona Externa  
+[![Video](https://img.shields.io/badge/🎥-Ver_Video_Video)](https://drive.google.com/file/d/1JfLrUWQatIBwIHc6usg9aLM0R0DN8_3v/view?usp=sharing)
+
 ---
 
 ## 📌 Notas  
